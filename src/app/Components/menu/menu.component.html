@@ -1,0 +1,32 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isWeb$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isWeb$ | async) ? 'over' : 'side'"
+      [opened]="(isWeb$ | async) === false">
+    <mat-toolbar>Parking</mat-toolbar>
+    <img src="" alt="">
+    <mat-nav-list>
+      <a mat-list-item href="\Usuarios"><mat-icon>accessibility</mat-icon>Usuarios</a>
+      <a mat-list-item href="\Parqueaderos"><mat-icon>https</mat-icon>Parqueaderos</a>
+      <a mat-list-item href="\vehiculos"><mat-icon>commute</mat-icon>Vehiculos</a>
+      <a mat-list-item href="\Factura"><mat-icon>update</mat-icon>Factura</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isWeb$  | async">
+        <mat-icon aria-label="Side nav toggle icon">Parking</mat-icon>
+      </button>
+      <span>Parking</span>
+    </mat-toolbar>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+   
+  </mat-sidenav-content>
+</mat-sidenav-container>
